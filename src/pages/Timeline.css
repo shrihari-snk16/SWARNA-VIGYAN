@@ -1,0 +1,128 @@
+.timeline-page {
+  background-color: var(--bg-dark);
+}
+
+.timeline-header {
+  padding: 2rem 2rem 2rem;
+  text-align: center;
+}
+
+.timeline-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: 1rem;
+}
+
+.timeline-subtitle {
+  color: var(--text-dim);
+  font-size: 1.1rem;
+}
+
+/* Horizontal Scroll Setup */
+.horizontal-scroll-section {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* Hide scrollbar for a cleaner look */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.horizontal-scroll-section::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.timeline-container {
+  display: flex;
+  padding: 2rem 50vw 4rem 10vw; /* Padding to center items when starting/ending */
+  gap: 4rem;
+  width: max-content;
+}
+
+.timeline-card {
+  width: 500px;
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-marker {
+  width: 100%;
+  height: 2px;
+  background: var(--gold-metallic);
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-marker::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background: var(--bg-dark);
+  border: 3px solid var(--saffron-deep);
+  border-radius: 50%;
+}
+
+.card-content {
+  background: var(--bg-dark-secondary);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+
+.card-content:hover {
+  transform: translateY(-10px);
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+.card-period {
+  color: var(--saffron-deep);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+}
+
+.card-era {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.card-title {
+  color: var(--gold-metallic);
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-desc {
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.card-element {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--gold-metallic);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .timeline-container {
+    padding: 0 5vw;
+  }
+  .timeline-card {
+    width: 320px;
+  }
+}

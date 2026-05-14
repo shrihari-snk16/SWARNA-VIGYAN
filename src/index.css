@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* Design Tokens as requested */
+  --gold-metallic: #D4AF37;
+  --gold-metallic-hover: #F1CA50;
+  --saffron-deep: #FF9933;
+  --charcoal-matte: #1C1C1C;
+  
+  /* Additional Premium Dark Theme Tokens */
+  --bg-dark: #0A0805;
+  --bg-dark-secondary: #12100A;
+  --bg-dark-tertiary: #1A1710;
+  
+  --text-primary: #E8D9B0;
+  --text-dim: #9A8A6A;
+  
+  /* Layout */
+  --nav-height: 70px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: 'Crimson Pro', serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, .cinzel {
+  font-family: 'Cinzel', serif;
+  color: var(--gold-metallic);
+}
+
+.inter {
+  font-family: 'Inter', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Premium Layout Grid */
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+.grid-responsive {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Common Components */
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold-metallic), #f9e29a, var(--gold-metallic));
+  color: var(--bg-dark);
+  border: none;
+  padding: 0.8rem 2rem;
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--gold-metallic);
+  border: 1px solid var(--gold-metallic);
+  padding: 0.8rem 2rem;
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.btn-outline:hover {
+  background: rgba(212, 175, 55, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--charcoal-matte);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-metallic);
+}
+
+.page-wrapper {
+  padding-top: var(--nav-height);
+  min-height: 100vh;
+}

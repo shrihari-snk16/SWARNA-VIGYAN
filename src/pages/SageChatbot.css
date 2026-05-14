@@ -1,0 +1,218 @@
+.sage-page {
+  padding-top: calc(var(--nav-height) + 4rem);
+  padding-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sage-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.sage-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 0.5rem;
+}
+
+.sage-header p {
+  color: var(--saffron-deep);
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.chat-container {
+  width: 100%;
+  max-width: 800px;
+  background: var(--bg-dark-secondary);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 12px;
+  height: 60vh;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.chat-container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-metallic), var(--saffron-deep));
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.message-wrapper {
+  display: flex;
+  gap: 1rem;
+  max-width: 85%;
+}
+
+.message-wrapper.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.message-wrapper.model {
+  align-self: flex-start;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.user .avatar {
+  background: var(--gold-metallic);
+}
+
+.model .avatar {
+  background: var(--saffron-deep);
+}
+
+.message-content {
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  line-height: 1.6;
+  font-size: 1.05rem;
+  white-space: pre-wrap;
+}
+
+.user .message-content {
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--text-primary);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-top-right-radius: 4px;
+}
+
+.model .message-content {
+  background: rgba(28, 28, 28, 0.8);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 153, 51, 0.2);
+  border-top-left-radius: 4px;
+}
+
+.voice-btn {
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: var(--gold-metallic);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 5px;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.voice-btn:hover {
+  background: rgba(212, 175, 55, 0.1);
+  transform: scale(1.1);
+}
+
+.chat-input-area {
+  padding: 1.5rem;
+  background: rgba(10, 8, 5, 0.95);
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  display: flex;
+  gap: 1rem;
+}
+
+.chat-input {
+  flex: 1;
+  background: rgba(28, 28, 28, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: var(--text-primary);
+  padding: 1rem 1.5rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.chat-input:focus {
+  border-color: var(--gold-metallic);
+}
+
+.chat-input::placeholder {
+  color: var(--text-dim);
+}
+
+.send-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--gold-metallic);
+  color: var(--bg-dark);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.send-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.send-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+.typing-indicator span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: var(--gold-metallic);
+  border-radius: 50%;
+  margin-right: 5px;
+  animation: typing 1s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(1) { animation-delay: 0s; }
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; margin-right: 0; }
+
+@keyframes typing {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(-5px); opacity: 1; }
+}
+
+.server-error-notice {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(231, 76, 60, 0.9);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  z-index: 10;
+}

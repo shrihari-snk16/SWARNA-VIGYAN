@@ -1,0 +1,146 @@
+.gallery-page {
+  padding-top: calc(var(--nav-height) + 4rem);
+  padding-bottom: 4rem;
+}
+
+.gallery-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.gallery-content {
+  padding-right: 2rem;
+}
+
+.gallery-content h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+}
+
+.subtitle {
+  color: var(--saffron-deep);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 2.5rem;
+}
+
+.description-block {
+  color: var(--text-primary);
+  line-height: 1.8;
+  font-size: 1.1rem;
+  background: rgba(28, 28, 28, 0.4);
+  padding: 2rem;
+  border-radius: 8px;
+  border-left: 3px solid var(--gold-metallic);
+  margin-bottom: 2rem;
+}
+
+.crucible-types {
+  margin-top: 1rem;
+  padding-left: 1.5rem;
+  color: var(--text-dim);
+}
+
+.crucible-types li {
+  margin-bottom: 0.5rem;
+}
+
+.crucible-types strong {
+  color: var(--gold-metallic);
+}
+
+.interaction-hint {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 30px;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.canvas-container {
+  height: 600px;
+  width: 100%;
+  position: relative;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+
+.canvas-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 70%;
+  background: radial-gradient(circle, rgba(255, 153, 51, 0.1) 0%, transparent 60%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Utilities */
+.text-center { text-align: center; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-12 { margin-bottom: 6rem; }
+.text-dim { color: var(--text-dim); }
+
+.gallery-layout.reverse {
+  direction: rtl;
+}
+
+.gallery-layout.reverse > * {
+  direction: ltr;
+}
+
+.gallery-image-container {
+  width: 100%;
+  aspect-ratio: 4/3;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-layout:hover .gallery-image {
+  transform: scale(1.05);
+}
+
+.image-glow {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at center, transparent 40%, rgba(10, 8, 5, 0.8) 100%);
+  pointer-events: none;
+}
+
+@media (max-width: 992px) {
+  .gallery-layout, .gallery-layout.reverse {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    direction: ltr;
+  }
+  .gallery-content {
+    padding-right: 0;
+  }
+  .canvas-container {
+    height: 400px;
+  }
+}
